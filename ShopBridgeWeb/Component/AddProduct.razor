@@ -1,0 +1,51 @@
+﻿@if (ShowDialog)
+{
+    <div class="modal fade show d-block" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product</h5>
+                    <button type="button" class="close" @onclick="@Close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <EditForm Model="@Product" OnValidSubmit="@HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <div class="form-group row">
+                            <label for="prouctname" class="col-sm-2">Product Name:</label>
+                            <input id="productname" class="form-control col-sm-8" @bind="@Product.ProductName" />
+                            <ValidationMessage class="offset-sm-2 col-sm-10" For="@(()=> Product.ProductName)"></ValidationMessage>
+                        </div>
+                        <div class="form-group row">
+                            <label for="prouctcode" class="col-sm-2">Product Code:</label>
+                            <input id="productcode" class="form-control col-sm-8" @bind="@Product.ProductCode" />
+                            <ValidationMessage class="offset-sm-2 col-sm-10" For="@(()=> Product.ProductCode)"></ValidationMessage>
+                        </div>
+                        <div class="form-group row">
+                            <label for="description" class="col-sm-2">Description:</label>
+                            <input id="description" class="form-control col-sm-8" @bind="@Product.Description" />
+                            <ValidationMessage class="offset-sm-2 col-sm-10" For="@(()=> Product.Description)"></ValidationMessage>
+                        </div>
+                        <div class="form-group row">
+                            <label for="purchasecost" class="col-sm-2">Purchase Cost:</label>
+                            <input id="purchasecost" class="form-control col-sm-8" @bind="@Product.PurchaseCost" />
+                            <ValidationMessage class="offset-sm-2 col-sm-10" For="@(()=> Product.PurchaseCost)"></ValidationMessage>
+                        </div>
+                        <div class="form-group row">
+                            <label for="sellingcost" class="col-sm-2">Selling Cost:</label>
+                            <input id="sellingcost" class="form-control col-sm-8" @bind="@Product.SellingCost" />
+                            <ValidationMessage class="offset-sm-2 col-sm-10" For="@(()=> Product.SellingCost)"></ValidationMessage>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-8 pl-0">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a class="btn btn-outline-primary ml-2" @onclick="@Close">Close</a>
+                            </div>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+}

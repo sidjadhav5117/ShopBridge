@@ -1,0 +1,43 @@
+﻿@page "/productdetails/{ProductId}"
+
+<h3>Product Details for @Product.ProductName</h3>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Code</label>
+            <div class="col-sm-10">
+                <label typeof="text" class="form-control-plaintext">@Product.ProductCode</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <label typeof="text" class="form-control-plaintext">@Product.Description</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Purchase Cost</label>
+            <div class="col-sm-10">
+                <label typeof="text" class="form-control-plaintext">@Product.PurchaseCost</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Selling Cost</label>
+            <div class="col-sm-10">
+                <label typeof="text" class="form-control-plaintext">@Product.SellingCost</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Code</label>
+            <div class="col-sm-10">
+                <label typeof="text" class="form-control-plaintext">@Product.CreatedDate</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <a class="btn btn-secondary float-right" href="">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

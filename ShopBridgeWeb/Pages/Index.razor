@@ -1,0 +1,53 @@
+﻿@page "/"
+
+<h1>Product</h1>
+
+@if (Products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <button @onclick="@AddProduct" class="btn btn-dark float-right">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Purchase Cost</th>
+                <th>Selling Cost</th>
+                <th>Created Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var product in Products)
+            {
+                <tr>
+                    <td>@product.ProductName</td>
+                    <td>@product.ProductCode</td>
+                    <td>@product.PurchaseCost</td>
+                    <td>@product.SellingCost</td>
+                    <td>@product.CreatedDate</td>
+                    <td>
+                        <a href="@($"productdetails/{product.Id}")" class="btn btn-primary">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                        <a href="@($"productedit/{product.Id}")" class="btn btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<ShopBridgeWeb.Component.AddProduct @ref="AddProductDialog" CloserEventCallback="@AddProductDialog_OnDialogClose"></ShopBridgeWeb.Component.AddProduct>
