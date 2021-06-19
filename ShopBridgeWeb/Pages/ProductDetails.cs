@@ -13,6 +13,9 @@ namespace ShopBridgeWeb.Pages
         [Parameter]
         public string ProductId { get; set; }
 
+        [CascadingParameter]
+        public Error Error { get; set; } 
+
         [Inject]
         public IProductService ProductService { get; set; }
 
@@ -20,7 +23,14 @@ namespace ShopBridgeWeb.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            Product = (await ProductService.GetProduct(int.Parse(ProductId)));
+            try
+            {
+                Product = (await ProductService.GetProduct(int.Parse(ProductId)));
+            }
+            catch(Exception ex)
+            {
+                Error.ProcessError(ex);
+            }
         }
     }
 }

@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopBridgeModels", "ShopBridgeModels\ShopBridgeModels.csproj", "{D2CAEF0B-65F8-41F4-BC0D-BF9CEA419362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridgeApi", "ShopBridgeApi\ShopBridgeApi.csproj", "{A4671D38-D28B-4A17-AF77-C631092A485E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopBridgeApi", "ShopBridgeApi\ShopBridgeApi.csproj", "{A4671D38-D28B-4A17-AF77-C631092A485E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridgeWeb", "ShopBridgeWeb\ShopBridgeWeb.csproj", "{CA4E163B-0685-40C9-BA42-3ED3C4D84DAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopBridgeWeb", "ShopBridgeWeb\ShopBridgeWeb.csproj", "{CA4E163B-0685-40C9-BA42-3ED3C4D84DAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridgeApiTest", "ShopBridgeApiTest\ShopBridgeApiTest.csproj", "{6EA0382A-372E-49C3-AB2F-72A28F0F79F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopBridgeApiTest", "ShopBridgeApiTest\ShopBridgeApiTest.csproj", "{6EA0382A-372E-49C3-AB2F-72A28F0F79F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

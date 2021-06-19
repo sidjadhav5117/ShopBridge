@@ -1,3 +1,4 @@
+using Blazored.Toast;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using ShopBridgeWeb.Services;
@@ -14,6 +15,8 @@ namespace ShopBridgeWeb
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddHttpClient<IProductService, ProductService>(client=> client.BaseAddress = new Uri("https://localhost:44375/"));
             // builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddBlazoredToast();
 
             await builder.Build().RunAsync();
         }

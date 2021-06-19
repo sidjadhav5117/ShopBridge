@@ -13,6 +13,9 @@ namespace ShopBridgeWeb.Pages
     {
         public IEnumerable<Product> Products { get; set; }
 
+        [CascadingParameter]
+        public Error Error { get; set; }
+
         [Inject]
         public IProductService ProductService { get; set; }
 
@@ -25,13 +28,32 @@ namespace ShopBridgeWeb.Pages
 
         protected void AddProduct()
         {
-            AddProductDialog.Show();
+            try
+            {
+                AddProductDialog.Show();
+            }
+            catch(Exception ex)
+            {
+                Error.ProcessError(ex);
+            }
         }
 
         public async void AddProductDialog_OnDialogClose()
         {
             Products = (await ProductService.GetProducts()).ToList();
             StateHasChanged();
+        }
+
+        protected async Task DeleteProduct(long id)
+        {
+            try
+            {
+                var response = await ProductService.DeleteProduct(id);
+            }
+            catch(Exception ex)
+            {
+                Error.ProcessError(ex);
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using ShopBridgeModels.Models;
 using ShopBridgeWeb.Services;
+using System;
 using System.Threading.Tasks;
 
 namespace ShopBridgeWeb.Pages
@@ -9,6 +10,9 @@ namespace ShopBridgeWeb.Pages
     {
         [Parameter]
         public string ProductId { get; set; }
+
+        [CascadingParameter]
+        public Error Error { get; set; }
 
         [Inject]
         public IProductService ProductService { get; set; }
@@ -55,16 +59,13 @@ namespace ShopBridgeWeb.Pages
 
         protected async Task HandleValidSubmit()
         {
-            var response = await ProductService.UpdatePerson(Product);
-            if (response != null)
+            try
             {
-                NavigationManager.NavigateTo("/");
+                var response = await ProductService.UpdatePerson(Product);
             }
-            else
+            catch(Exception ex)
             {
-                StatusClass = "alert=danger";
-                Message = "Something went wrong while updating. Please try again.";
-                Saved = false;
+                Error.ProcessError(ex);
             }
         }
 
