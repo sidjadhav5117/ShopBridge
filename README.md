@@ -12,6 +12,7 @@ This application contains the CRUD operation using ASP.NET Core Blazor, ASP.NET 
 * It basically includes the CRUD Operation of the Product.
 * It has the xunit test cases as well for the web api controllers.
 * Use of Web API.
+* Global exception handling.
 
 **How to run the project**
 * Download the proeject in your local and do the setup.
